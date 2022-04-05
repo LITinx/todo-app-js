@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-primary {
+  @apply border-2  p-1 rounded-md  font-medium shadow-md transition-colors duration-300;
+}
+.list-style {
+  @apply border-2 rounded-md p-2 mb-4 flex justify-between items-center;
+}

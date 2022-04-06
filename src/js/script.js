@@ -21,7 +21,7 @@ function updateTime() {
 	let today = new Date()
 	let currentYear = today.getFullYear()
 	let date = `${monthNames[today.getMonth()]} ${today.getDate()}`
-	let time = `${today.getHours() + 6}:${
+	let time = `${today.getHours()}:${
 		today.getMinutes() < 10 ? '0' : ''
 	}${today.getMinutes()}`
 	dateTime = `${date}, ${currentYear}, ${time}`

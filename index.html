@@ -10,15 +10,17 @@
 
 </head>
 
-<body>
-  <div class="flex justify-center items-center h-screen bg-white ">
-    <div class="w-1/2 border-solid border-gray-500 border-4 rounded-lg">
+<body class="box-border bg-white">
+  <div class="flex justify-center items-center h-full">
+    <div class="lg:w-3/5 w-5/6 border-solid border-gray-500 border-4 rounded-lg mt-20">
       <h2 class="p-4 text-3xl text-gray-600 text-center">Todo List</h2>
       <div class="flex justify-center">
-        <form id="form" class="w-2/3 p-3 flex justify-center items-center ">
+        <form id="form" class="lg:w-2/3 w-full lg:px-0 p-3 px-6 flex justify-center items-center ">
           <input placeholder="Todo" type="text" name="todo" id="todoInput"
             class="w-full outline-none border-2 rounded-md p-1 mr-3" required>
-          <button class="btn-primary min-w-max" id="submitBtn" type="submit">Add Todo</button>
+          <button
+            class="border-2  p-1 rounded-md  font-medium text-base shadow-md transition-colors duration-300 min-w-max"
+            id="submitBtn" type="submit">Add Todo</button>
         </form>
       </div>
       <div class="pt-4 px-5 flex justify-center items-center">

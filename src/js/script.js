@@ -23,7 +23,7 @@ function createTemplate(task, index) {
     <p class="${!task.completed ? '' : 'line-through text-gray-600 italic'}">
       ${task.taskName}
     </p>
-        <div class="inline-block space-x-1 no-underline">
+        <div class="inline-block pr-0  md:space-x-1 space-y-2 text-right no-underline ">
           <button onclick="deleteTask(${index})" class="btn-primary border-red-500 bg-red-400 hover:bg-red-500">Delete              
           Task</button>
           <button onclick="completeTask(${index})" class="btn-primary border-green-500 bg-green-400 hover:bg-green-500">${
@@ -55,29 +55,30 @@ fillList()
 
 function completeTask(index) {
 	tasks[index].completed = !tasks[index].completed
-	fillList()
-	updateLocal()
+	updatingTodo()
 }
 
 submitBtn.addEventListener('click', (e) => {
 	e.preventDefault()
-	tasks.push(new Task(inputValue.value))
+	tasks.unshift(new Task(inputValue.value))
 	if (inputValue.value === '') {
-		inputValue.classList.add('placeholder:text-red-500', 'border-red-500')
-		placeholderInput.placeholder = "Please write Todo's name "
+		inputValue.classList.add('required')
+		placeholderInput.placeholder = 'Required title'
 		return
 	}
 	if (inputValue.value !== '') {
-		inputValue.classList.remove('placeholder:text-red-500', 'border-red-500')
+		inputValue.classList.remove('required')
 		placeholderInput.placeholder = 'Todo'
 	}
 	inputValue.value = ''
-	updateLocal()
-	fillList()
+	updatingTodo()
 })
 
 function deleteTask(index) {
 	tasks.splice(index, 1)
+	updatingTodo()
+}
+function updatingTodo() {
 	updateLocal()
 	fillList()
 }

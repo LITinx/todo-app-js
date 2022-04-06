@@ -16,12 +16,18 @@ const monthNames = [
 	'November',
 	'December',
 ]
-
-let today = new Date()
-let currentYear = today.getFullYear()
-let date = `${monthNames[today.getMonth()]} ${today.getDate()}`
-let time = `${today.getHours() + 6}:${today.getMinutes()}`
-let dateTime = `${date}, ${currentYear}, ${time}`
+let dateTime
+function updateTime() {
+	let today = new Date()
+	let currentYear = today.getFullYear()
+	let date = `${monthNames[today.getMonth()]} ${today.getDate()}`
+	let time = `${today.getHours() + 6}:${
+		today.getMinutes() < 10 ? '0' : ''
+	}${today.getMinutes()}`
+	dateTime = `${date}, ${currentYear}, ${time}`
+	setTimeout(updateTime, 1000)
+}
+updateTime()
 
 let tasks = []
 !localStorage.tasks
